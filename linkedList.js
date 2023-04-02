@@ -34,7 +34,7 @@ const LinkedList = () => {
     length++;
   }
 
-  this.prepend = function(element) {
+  this.prepend = (element) => {
     var node = Node(element);
     if (head === null) head = node;
     else {
@@ -46,11 +46,25 @@ const LinkedList = () => {
     var currentNode = head;
     var stringReturn = `(${currentNode.value}) `;
     while (currentNode.next) {
-      stringReturn += `-> (${currentNode.next.value})`; 
+      stringReturn += `-> ( ${currentNode.next.value} )`; 
       currentNode = currentNode.next; 
     }
-      return stringReturn
+    return stringReturn + ` -> ( ${null} )` 
   }
+
+  this.remove = (element) => {
+    var currentNode = head;
+    var previousNode;
+    if (currentNode.element === element) head = currentNode.next;
+    else {
+      while (currentNode.value !== element) {
+        previousNode = currentNode;
+        currentNode = currentNode.next; 
+      }
+      previousNode.next = currentNode.next; 
+    }
+    length--;
+  }   
 
   return {
     Node, 
@@ -59,6 +73,20 @@ const LinkedList = () => {
     whoIsTail,
     append, 
     prepend, 
-    toString
+    toString, 
+    remove
   }
 }
+
+const newList = LinkedList(); 
+console.log(newList.whoIsHead()); 
+newList.append("usama");
+newList.append("nour");
+newList.append("hira"); 
+newList.append("kenza");
+console.log(newList.whoIsHead()); 
+console.log(newList.whoIsTail()); 
+console.log(newList.size()); 
+console.log(newList.toString()); 
+newList.remove("hira");
+console.log(newList.toString()); 
