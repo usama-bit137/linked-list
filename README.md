@@ -1,6 +1,6 @@
-# linked-list
+# Linked List
 ## Introduction
-A linked list is a data structure which is a linear collection of data elements (known as nodes). The order of the nodes is not given by is not given by their placement in memory, rather, each element points to the next. We can represent a list of `n+1` elements as follows,
+A linked list is a data structure which is a linear collection of data elements (known as nodes). The order of the nodes is not given by is not given by their placement in memory, rather, each element points to the next. We can represent a list of `n` elements as follows,
 
 `[head]->[Node 1]->[Node 2]->...[Node n-1]->[null]`.
 
