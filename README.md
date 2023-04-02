@@ -5,7 +5,7 @@ A linked list is a data structure which is a linear collection of data elements 
 `[head]->[Node 1]->[Node 2]->...[Node n-1]->[null]`.
 
 
-This JavaScript object creates a new linked list.
+This JavaScript object creates a new linked list as well as some methods to alter and append their nodes.
 
 ## whoIsHead()
 Suppose we initialize the linked list and call the `whoIsHead()` method,
