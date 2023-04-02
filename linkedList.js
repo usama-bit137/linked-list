@@ -78,15 +78,3 @@ const LinkedList = () => {
   }
 }
 
-const newList = LinkedList(); 
-console.log(newList.whoIsHead()); 
-newList.append("usama");
-newList.append("nour");
-newList.append("hira"); 
-newList.append("kenza");
-console.log(newList.whoIsHead()); 
-console.log(newList.whoIsTail()); 
-console.log(newList.size()); 
-console.log(newList.toString()); 
-newList.remove("hira");
-console.log(newList.toString()); 
