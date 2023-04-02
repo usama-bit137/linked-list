@@ -44,7 +44,7 @@ const LinkedList = () => {
 
 const newList = LinkedList(); 
 console.log(newList.whoIsHead()); 
-newList.add("usama");
-newList.add("nour");
+newList.append("usama");
+newList.append("nour");
 console.log(newList.whoIsHead()); 
 console.log(newList.size()); 
