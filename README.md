@@ -77,3 +77,5 @@ Which is not particularly easy on the eyes. Luckily, we can make use of the `toS
 ``` js 
 console.log(list.toString()); // ( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> ( 5 ) -> ( null ) 
 ```
+
+## `remove()`

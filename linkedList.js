@@ -12,7 +12,7 @@ const LinkedList = () => {
   
   this.whoIsHead = () => head;
   
-  this.whoIsTail = function() {
+  this.whoIsTail = () => {
     if (head === null) return head;
     else {
       var currentNode = head;
@@ -21,7 +21,7 @@ const LinkedList = () => {
     }
   }
 
-  this.append = function(element) {
+  this.append = (element) => {
     var node = Node(element);
     if (head === null) head = node;
     else {
@@ -33,15 +33,7 @@ const LinkedList = () => {
     }
     length++;
   }
-
-  this.prepend = (element) => {
-    var node = Node(element);
-    if (head === null) head = node;
-    else {
-
-    }
-  }
-
+  
   this.toString = () => {
     var currentNode = head;
     var stringReturn = `(${currentNode.value}) `;
@@ -66,15 +58,27 @@ const LinkedList = () => {
     length--;
   }   
 
-  return {
+  return { 
     Node, 
     size, 
     whoIsHead, 
     whoIsTail,
-    append, 
-    prepend, 
+    append,  
     toString, 
     remove
   }
 }
 
+const newList = LinkedList(); 
+console.log(newList.whoIsHead()); 
+newList.append("usama");
+newList.append("nour");
+newList.append("iram");
+newList.append("aqeel");
+newList.append("hira");
+newList.append("orion");
+newList.append("kenza");
+console.log(newList.whoIsHead()); 
+console.log(newList.size()); 
+
+console.log(newList.toString()); 
