@@ -21,21 +21,19 @@ const LinkedList = () => {
     }
   }
   
-  /*
   this.find = ( value ) => {
-    var currentNode = head;
-    var count = 0;
-      
-    if (currentNode.next.value === null ) return null;
+    if (head === null) return null;
     else {
-      while (count!=length) {
-        if ( currentNode.value === value ) return count; 
-        console.log(count);
+      var currentNode = head;
+      var count = 0;
+      while (currentNode.next) {
+        if (currentNode.value === value) return count;
+        else if (currentNode.value === null) return null; 
+        currentNode = currentNode.next; 
         count++;
-      } 
+      }
     }
   }
-  */
   
   this.append = ( element ) => {
     var node = Node(element);
@@ -93,4 +91,4 @@ newList.append("Bugs");
 newList.append("Daffy");
 newList.append("Jerry");
 console.log(newList.toString()); 
-console.log(newList.find("Jerry"));
+console.log(newList.find("Daffy"));
