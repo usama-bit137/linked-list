@@ -105,3 +105,12 @@ console.log(newList.at(2)); // "Bugs"
 ```
 
 The index labelling is identical to array indexing in JavaScript.
+
+## `.pop()`
+Another method similar to that of arrays is the `.pop()` method. `.pop()` will remove the final element from the linked list,
+
+```js   
+console.log(newList.pop()); //  ( "Tom" ) -> ( "Bugs" ) -> ( "Daffy" ) -> ( null )
+```
+
+```
