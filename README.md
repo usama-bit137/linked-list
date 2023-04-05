@@ -52,7 +52,7 @@ console.log(newList.size()); // 2
 ```
 
 ## `toSting()`
-If you were to `console.log` a linked list of numbers `0` up to `n`, you would find an extremely complex `n`-nested object much like the following, 5-nested object:
+If you were to `console.log` a linked list of numbers `1` up to `n`, you would find an extremely complex `n`-nested object much like the following, 5-nested object:
 
 ```js
 list = {
