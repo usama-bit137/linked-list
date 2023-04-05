@@ -21,6 +21,10 @@ const LinkedList = () => {
     length++;
   }
 
+  this.prepend = ( value ) => {
+
+  }
+
   this.size = () => length; 
   
   this.whoIsHead = () => head;
@@ -85,16 +89,34 @@ const LinkedList = () => {
   this.pop = () => {
     var currentNode = head;
     var previousNode;
-    while ( currentNode.next ) {}
+    if ( currentNode.value === null ) return currentNode;
+    else {
+      while (currentNode.next) {
+        previousNode = currentNode;
+        currentNode = currentNode.next;
+      } 
+    previousNode = null; 
+    length--;
+    }
   }
 
+  this.contains = ( value ) => {
+    var currentNode = head;
+    while ( currentNode.next ) {
+      return currentNode.value === value ? true : false; 
+      currentNode = currentNode.next;
+    }
+  }
+   
   return { 
     size, 
     whoIsHead, 
     whoIsTail,
     at,
+    contains,
     find,
-    append,  
+    append, 
+    prepend, 
     toString, 
     remove, 
     pop
@@ -108,6 +130,5 @@ newList.append("Bugs");
 newList.append("Daffy");
 newList.append("Jerry");
 newList.remove("Jerry");
-console.log(newList.toString()); 
-console.log(newList.find("Bugs"));
-console.log(newList.at(0));
+console.log(newList.contains("Usama"));
+
