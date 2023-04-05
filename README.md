@@ -96,7 +96,7 @@ console.log(newList.toString()); // ( "Tom" ) -> ( "Bugs" ) -> ( "Daffy" ) -> ( 
 
 Remember, that this method will only remove the first instance of a particular value.
 
-## `.at()` 
+## `.at(index)` 
 Linked lists are data structures that do not support array indexing, however, we can make use of the `at` method on the linked list to find the value of the `nth` node,
 
 ``` js 
