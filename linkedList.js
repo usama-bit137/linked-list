@@ -89,7 +89,6 @@ const LinkedList = () => {
   }
 
   return { 
-    Node, 
     size, 
     whoIsHead, 
     whoIsTail,
