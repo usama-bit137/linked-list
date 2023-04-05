@@ -8,6 +8,19 @@ const LinkedList = () => {
     return {value, next}
   }
   
+  this.append = ( element ) => {
+    var node = Node(element);
+    if (head === null) head = node;
+    else {
+      var currentNode = head; 
+      while (currentNode.next) {
+      currentNode = currentNode.next;
+      }
+      currentNode.next = node;
+    }
+    length++;
+  }
+
   this.size = () => length; 
   
   this.whoIsHead = () => head;
@@ -21,6 +34,16 @@ const LinkedList = () => {
     }
   }
   
+  this.at = ( index ) => {
+    var count = 0; 
+    var currentNode = head;
+    while ( count != index ) {
+      currentNode = currentNode.next;
+      count++; 
+    }
+      return currentNode.value
+  }
+
   this.find = ( value ) => {
     if (head === null) return null;
     else {
@@ -34,25 +57,12 @@ const LinkedList = () => {
       }
     }
   }
-  
-  this.append = ( element ) => {
-    var node = Node(element);
-    if (head === null) head = node;
-    else {
-      var currentNode = head; 
-      while (currentNode.next) {
-      currentNode = currentNode.next;
-      }
-      currentNode.next = node;
-    }
-    length++;
-  }
-  
+
   this.toString = () => {
     var currentNode = head;
-    var stringReturn = `(${currentNode.value}) `;
+    var stringReturn = `( ${currentNode.value} ) `;
     while (currentNode.next) {
-      stringReturn += `-> ( ${currentNode.next.value} )`; 
+      stringReturn += `-> ( ${currentNode.next.value} ) `; 
       currentNode = currentNode.next; 
     }
     return stringReturn + ` -> ( ${null} )` 
@@ -61,7 +71,7 @@ const LinkedList = () => {
   this.remove = ( element ) => {
     var currentNode = head;
     var previousNode;
-    if (currentNode.element === element) head = currentNode.next;
+    if (currentNode.value === element) head = currentNode.next;
     else {
       while (currentNode.value !== element) {
         previousNode = currentNode;
@@ -72,15 +82,23 @@ const LinkedList = () => {
     length--;
   }   
 
+  this.pop = () => {
+    var currentNode = head;
+    var previousNode;
+    while ( currentNode.next ) {}
+  }
+
   return { 
     Node, 
     size, 
     whoIsHead, 
     whoIsTail,
+    at,
     find,
     append,  
     toString, 
-    remove
+    remove, 
+    pop
   }
 }
 
@@ -90,5 +108,7 @@ newList.append("Jerry");
 newList.append("Bugs");
 newList.append("Daffy");
 newList.append("Jerry");
+newList.remove("Jerry");
 console.log(newList.toString()); 
-console.log(newList.find("Daffy"));
+console.log(newList.find("Bugs"));
+console.log(newList.at(0));
