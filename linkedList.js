@@ -84,20 +84,20 @@ const LinkedList = () => {
       previousNode.next = currentNode.next; 
     }
     length--;
-  }   
+  }
 
   this.pop = () => {
     var currentNode = head;
     var previousNode;
-    if ( currentNode.value === null ) return currentNode;
+    if ( currentNode.value === null ) return null; 
     else {
-      while (currentNode.next) {
+      while( currentNode.next ){
         previousNode = currentNode;
         currentNode = currentNode.next;
-      } 
-    previousNode = null; 
-    length--;
+      }
+      previousNode.next = currentNode.next;
     }
+    length--;
   }
 
   this.contains = ( value ) => {
@@ -129,6 +129,7 @@ newList.append("Jerry");
 newList.append("Bugs");
 newList.append("Daffy");
 newList.append("Jerry");
-newList.remove("Jerry");
-console.log(newList.contains("Usama"));
-
+newList.append("Usama");
+console.log(newList.toString());
+newList.pop();
+console.log(newList.toString());
