@@ -2,13 +2,13 @@ const LinkedList = () => {
   var length = 0;
   var head = null;
 
-  const Node = ( element ) => {
+  const Node = (element) => {
     this.value = element; 
     this.next = null;
     return {value, next}
   }
-  
-  this.append = ( element ) => {
+
+  this.append = (element) => {
     var node = Node(element);
     if (head === null) head = node;
     else {
@@ -21,8 +21,17 @@ const LinkedList = () => {
     length++;
   }
 
-  this.prepend = ( value ) => {
-
+  this.prepend = (value) => {
+    var currentNode = head;
+    var newNode = Node(value)
+    head = newNode;
+    newNode.next = head;
+    while (currentNode.next) {  
+      newNode.next = currentNode;
+      currentNode = currentNode.next;
+    }
+    length++;
+    // close;
   }
 
   this.size = () => length; 
@@ -38,17 +47,17 @@ const LinkedList = () => {
     }
   }
   
-  this.at = ( index ) => {
+  this.at = (index) => {
     var count = 0; 
     var currentNode = head;
-    while ( count != index ) {
+    while (count != index) {
       currentNode = currentNode.next;
       count++; 
     }
       return currentNode.value
   }
 
-  this.find = ( value ) => {
+  this.find = (value) => {
     if (head === null) return null;
     else {
       var currentNode = head;
@@ -72,7 +81,7 @@ const LinkedList = () => {
     return stringReturn + ` -> ( ${null} )` 
   }
 
-  this.remove = ( element ) => {
+  this.remove = (element) => {
     var currentNode = head;
     var previousNode;
     if (currentNode.value === element) head = currentNode.next;
@@ -89,7 +98,7 @@ const LinkedList = () => {
   this.pop = () => {
     var currentNode = head;
     var previousNode;
-    if ( currentNode.value === null ) return null; 
+    if (currentNode.value === null) return null; 
     else {
       while( currentNode.next ){
         previousNode = currentNode;
@@ -100,12 +109,15 @@ const LinkedList = () => {
     length--;
   }
 
-  this.contains = ( value ) => {
+  this.contains = (value) => {
     var currentNode = head;
     while ( currentNode.next ) {
-      return currentNode.value === value ? true : false; 
-      currentNode = currentNode.next;
+      if (currentNode.value === value) return true;
+      else {
+        currentNode = currentNode.next;
+      } 
     }
+    return false;
   }
    
   return { 
@@ -129,7 +141,6 @@ newList.append("Jerry");
 newList.append("Bugs");
 newList.append("Daffy");
 newList.append("Jerry");
-newList.append("Usama");
 console.log(newList.toString());
-newList.pop();
+console.log(newList.contains("Tom"));
 console.log(newList.toString());
