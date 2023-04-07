@@ -25,9 +25,10 @@ const LinkedList = () => {
     var currentNode = head;
     var newNode = Node(value)
     head = newNode;
-    newNode.next = head;
+    newNode.next = currentNode;
     while (currentNode.next) {  
-      newNode.next = currentNode;
+      newNode = currentNode;
+      newNode = newNode.next;
       currentNode = currentNode.next;
     }
     length++;
@@ -134,13 +135,3 @@ const LinkedList = () => {
     pop
   }
 }
-
-const newList = LinkedList();
-newList.append("Tom");
-newList.append("Jerry");
-newList.append("Bugs");
-newList.append("Daffy");
-newList.append("Jerry");
-console.log(newList.toString());
-console.log(newList.contains("Tom"));
-console.log(newList.toString());
